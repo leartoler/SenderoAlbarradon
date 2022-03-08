@@ -28,7 +28,7 @@
                         1,
                         1
                     ],
-                    "intensity" : 1000,
+                    "intensity" : 100,
                     "type" : "point",
                     "name" : "Light.006"
                 },
@@ -38,7 +38,7 @@
                         1,
                         1
                     ],
-                    "intensity" : 1000,
+                    "intensity" : 100,
                     "type" : "point",
                     "name" : "Light.001"
                 },
@@ -48,7 +48,7 @@
                         1,
                         1
                     ],
-                    "intensity" : 1000,
+                    "intensity" : 100,
                     "type" : "point",
                     "name" : "Light.002"
                 },
@@ -58,7 +58,7 @@
                         1,
                         1
                     ],
-                    "intensity" : 1000,
+                    "intensity" : 100,
                     "type" : "point",
                     "name" : "Light.003"
                 },
@@ -68,7 +68,7 @@
                         1,
                         1
                     ],
-                    "intensity" : 1000,
+                    "intensity" : 100,
                     "type" : "point",
                     "name" : "Light.004"
                 },
@@ -78,7 +78,7 @@
                         1,
                         1
                     ],
-                    "intensity" : 1000,
+                    "intensity" : 100,
                     "type" : "point",
                     "name" : "Light.005"
                 }
