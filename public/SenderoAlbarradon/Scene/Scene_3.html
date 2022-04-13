@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="sky" src="sky2.jpg">
+        <audio id="lake" src="lake.mp3" preload="auto"></audio>
+        <a-asset-item id="albarradon" src="CasaDeMorelos7.gltf"></a-asset-item>
+      </a-assets>
+      <!-- Tiene que ser una imagen equirectangular -->
+        <a-sky src="#sky"></a-sky>
+        <a-entity sound="src: #lake; autoplay: true; loop: true"></a-entity>
+
+        <a-entity gltf-model="#albarradon"></a-entity> 
+
+    </a-scene>
+  </body>
+</html>
