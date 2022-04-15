@@ -1,40 +1,31 @@
 <html>
   <head>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script> <!-- Lluvia -->
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://ideaspacevr.github.io/aframe-particle-system-component/dist/aframe-particle-system-component.min.js"></script> 
+    <!-- Lluvia -->
   </head>
   <body>
-
   	<!-- Compressor. -->
-    <a-scene>
-    
-  
+    <a-scene>  
+      
+
 
     	<!-- Asset management system. -->
       <a-assets>
         <img id="sky" src="Asset_2/Sky_2.jpg">
-        
-        
         <a-asset-item id="Cuenca" src="Asset_2/Cuenca_2.gltf"></a-asset-item>
-         <a-asset-item id="Agua" src="Asset_2/Agua_2.gltf"></a-asset-item>
-        
-        
+        <a-asset-item id="Agua" src="Asset_2/Agua_2.gltf"></a-asset-item>     
       </a-assets>
 
       <!-- Tiene que ser una imagen equirectangular -->
        <!-- Scene. -->
         <a-sky src="#sky"></a-sky>
-        <a-entity position="0 2.25 -15" particle-system="preset: rain"></a-entity>
         <a-entity gltf-model="#Cuenca"
         scale="2 2 2"></a-entity>
-        <a-entity gltf-model="#Agua"></a-entity>
+        <a-entity gltf-model="#Agua" 
+        scale="2 2 2"></a-entity>
+        <a-entity position="0 2.25 -15" particle-system="preset: rain; particleCount: 5000"></a-entity>
         
-        
-
-        
-
-
-
     </a-scene>
 
   </body>
