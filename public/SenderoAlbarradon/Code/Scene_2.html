@@ -6,7 +6,10 @@
   </head>
   <body>
   	<!-- Compressor. -->
-    <a-scene>  
+    <a-scene
+    gltf-model="dracoDecoderPath: https://cdn.8thwall.com/web/aframe/draco-decoder/"xrweb
+    a-scene loading-screen="dotsColor: red; backgroundColor: black"> 
+
       
 
 
@@ -14,7 +17,9 @@
       <a-assets>
         <img id="sky" src="Asset_2/Sky_2.jpg">
         <a-asset-item id="Cuenca" src="Asset_2/Cuenca_2.gltf"></a-asset-item>
-        <a-asset-item id="Agua" src="Asset_2/Agua_2.gltf"></a-asset-item>     
+        <a-asset-item id="Agua" src="Asset_2/Agua_2.gltf"></a-asset-item> 
+        <a-asset-item id="Plantas1" src="Asset_2/Plantas1_2.gltf"></a-asset-item> 
+
       </a-assets>
 
       <!-- Tiene que ser una imagen equirectangular -->
@@ -23,6 +28,8 @@
         <a-entity gltf-model="#Cuenca"
         scale="2 2 2"></a-entity>
         <a-entity gltf-model="#Agua" 
+        scale="2 2 2"></a-entity>
+        <a-entity gltf-model="#Plantas1" 
         scale="2 2 2"></a-entity>
         <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount: 5000"></a-entity>
         
