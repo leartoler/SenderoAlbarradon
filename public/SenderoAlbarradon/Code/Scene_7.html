@@ -1,34 +1,65 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script> <!-- Lluvia -->
+    
   </head>
   <body>
 
   	<!-- Compressor. -->
-    <a-scene>
+    <a-scene
+    gltf-model="dracoDecoderPath: https://cdn.8thwall.com/web/aframe/draco-decoder/"xrweb
+    a-scene loading-screen="dotsColor: red; backgroundColor: black">
+
+    	
     
   
 
     	<!-- Asset management system. -->
       <a-assets>
-        <img id="sky" src="Asset_2/Sky_2.jpg">
+        <img id="Sky" src="Asset_7/Sky_7.jpg">
+        <!-- Ambient 3D -->
+        <a-asset-item id="Tierra" src="Asset_7/Tierra_7.glb"></a-asset-item>
+        <a-asset-item id="Agua" src="Asset_7/Agua_7.glb"></a-asset-item>
+        <a-asset-item id="Pasto" src="Asset_7/Pasto_7.glb"></a-asset-item>
+
+
+
+
+
+
+      	<a-asset-item id="Capilla" src="Asset_7/Capilla_7.glb"></a-asset-item>
+      	<a-asset-item id="Capilla-1" src="Asset_7/Capilla_7-1.glb"></a-asset-item>
+      	<a-asset-item id="Capilla-2" src="Asset_7/Capilla_7-2.glb"></a-asset-item>
+      	<a-asset-item id="Capilla-4" src="Asset_7/Capilla_7-4.glb"></a-asset-item>
+      	<a-asset-item id="Capilla-5" src="Asset_7/Capilla_7-5.glb"></a-asset-item>      
         
+      	<a-asset-item id="Muro" src="Asset_7/Muro_7.glb"></a-asset-item>
+
         
-        <a-asset-item id="Cuenca" src="Asset_2/Cuenca_2.gltf"></a-asset-item>
-         <a-asset-item id="Agua" src="Asset_2/Agua_2.gltf"></a-asset-item>
         
         
       </a-assets>
-
-      <!-- Tiene que ser una imagen equirectangular -->
-       <!-- Scene. -->
-        <a-sky src="#sky"></a-sky>
-        <a-entity position="0 2.25 -15" particle-system="preset: rain"></a-entity>
-        <a-entity gltf-model="#Cuenca"
-        scale="2 2 2"></a-entity>
+        <a-sky src="#Sky" position = "0 -25 0"></a-sky>
+      <!-- Ambient 3D -->
+        <a-entity gltf-model="#Tierra"></a-entity>
         <a-entity gltf-model="#Agua"></a-entity>
+        <a-entity gltf-model="#Pasto"></a-entity>
+
+
+     
+
         
+        <a-entity gltf-model="#Capilla"></a-entity>   
+        <a-entity gltf-model="#Capilla-1"></a-entity>
+        <a-entity gltf-model="#Capilla-2"></a-entity>
+        <a-entity gltf-model="#Capilla-4"></a-entity>
+        <a-entity gltf-model="#Capilla-5"></a-entity>
+        <a-entity gltf-model="#Muro"></a-entity>
+        
+
+
+
+         
         
 
         
