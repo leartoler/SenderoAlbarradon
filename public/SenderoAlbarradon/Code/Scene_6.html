@@ -56,18 +56,7 @@ void main() {
     gl_FragColor = vec4(blue + vec3(tex1.a * 0.9 - tex2.a * 0.02), 1.0);
 }`
   });
-</script>
-
-
-
-
-
-
-
-
-
-
-    
+</script>    
   </head>
   <body>
 
@@ -83,14 +72,15 @@ void main() {
       <!-- Asset management system. -->
       <a-assets>
         <img id="Sky" src="Asset_6/Sky_6.jpg">
+        <a-asset-item id="General" src="Asset_6/General.glb"></a-asset-item>
         <!-- Ambient 3D -->
-        <a-asset-item id="Tierra" src="Asset_6/Tierra_6.glb"></a-asset-item>
+        <!-- <a-asset-item id="Tierra" src="Asset_6/Tierra_6.glb"></a-asset-item>
         <a-asset-item id="Puente" src="Asset_6/Puente_6.glb"></a-asset-item>
         <a-asset-item id="Pasto" src="Asset_6/Pasto_6.glb"></a-asset-item>
         <a-asset-item id="Arcos" src="Asset_6/Arcos_6.glb"></a-asset-item>
         <a-asset-item id="Roca" src="Asset_6/Roca_6.glb"></a-asset-item>
         
-        <a-asset-item id="PastoAcuatico" src="Asset_6/PastoAcuatico_6.glb"></a-asset-item>
+        <a-asset-item id="PastoAcuatico" src="Asset_6/PastoAcuatico_6.glb"></a-asset-item> -->
         
 
 
@@ -109,12 +99,12 @@ void main() {
       </a-assets>
         <a-sky src="#Sky" position = "0 -70 0"></a-sky>
       <!-- Ambient 3D -->
-        <a-entity gltf-model="#Tierra"></a-entity>
+        <!-- <a-entity gltf-model="#Tierra"></a-entity>
         <a-entity gltf-model="Asset_6/PastoAcuatico_6.glb" visible="" position="0 0.66 0"></a-entity>
         <a-entity gltf-model="#Puente"></a-entity>
         <a-entity gltf-model="#Arcos"></a-entity>
-        <a-entity gltf-model="#Pasto"></a-entity>
-        <a-entity gltf-model="#Roca"></a-entity>
+        <a-entity gltf-model="#Pasto"></a-entity> -->
+        <a-entity gltf-model="#General"></a-entity>
         <a-plane rotation="-90 0 0" postion="0 -20 0" width="250" height="250" segments-height="2" segments-width="2" material="shader: makewaves; uMap: https://cinemont.com/tutorials/zelda/water.png; repeat: 15 15; transparent: true; color: #336c70" geometry="" position="0 -1.81 0"></a-plane>
          
         
