@@ -2,6 +2,7 @@
   <head>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     
+    
     <!-- Water Shader -->   
     <script>
   AFRAME.registerShader('makewaves', {
@@ -59,8 +60,8 @@ void main() {
 }`
   });
 
-  </script>    
-</head>
+    </script>    
+  </head>
 
   <body>
   	<!-- Compressor, Loading Screen, Fog -->
@@ -73,7 +74,7 @@ void main() {
     <a-assets>
       <img id="sky" src="Asset_2/Sky_2.jpg">     
       <audio id="sound" src="Asset_2/Sound_2.mp3" preload="auto"></audio>
-      <audio id="music" src="Asset_2/Music_2.mp3" preload="auto"></audio> -->
+      <audio id="music" src="Asset_2/Music_2.mp3" preload="auto"></audio> 
       <a-asset-item id="Plantas1" src="Asset_2/Plantas1_2.glb"></a-asset-item>
       <a-asset-item id="Plantas3" src="Asset_2/Plantas3_2.glb"></a-asset-item>
       <a-asset-item id="Tierra" src="Asset_2/Tierra_2.glb"></a-asset-item>
@@ -83,6 +84,7 @@ void main() {
       <a-sky src="#sky"></a-sky>    
       <a-entity sound="src: #sound; autoplay: true; loop: true"></a-entity>
       <a-entity sound="src: #music; autoplay: true; loop: true"></a-entity>
+      <a-text color="black" value="En Desarrollo" position="-0.5 2.5 -3" rotation="0 0 0"></a-text>
       <a-entity gltf-model="Asset_2/Plantas1_2.glb" visible="" position="-1.09882 1.41 -21.07635" scale="2 2 2"></a-entity>
       <a-entity gltf-model="Asset_2/Plantas3_2.glb" visible="" scale="2 2 2"></a-entity>      
       <a-entity gltf-model="Asset_2/Tierra_2.glb" scale="2 2 2" visible=""></a-entity>

@@ -1,45 +1,98 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script> <!-- Lluvia -->
-  </head>
-  <body>
-
-  	<!-- Compressor. -->
-    <a-scene>
+    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
     
-  
+    <!-- Water Shader -->   
+    <script>
+  AFRAME.registerShader('makewaves', {
+    schema: {
+      color: {
+        type: 'color',
+        is: 'uniform',
+        default: '#0051da'
+      },
+      timeMsec: {
+        type: 'time',
+        is: 'uniform'
+      },
+      uMap: {
+      type: 'map',
+        is: 'uniform'
+      }
+    },
+    vertexShader: `
+#define SCALE 10.0
+varying vec2 vUv;
+uniform float timeMsec;
+float calculateSurface(float x, float z) {
+    float uTime = timeMsec / 1000.0;
+    float y = 0.0;
+    y += (sin(x * 1.0 / SCALE + uTime * 1.0) + sin(x * 2.3 / SCALE + uTime * 1.5) + sin(x * 3.3 / SCALE + uTime * 0.4)) / 3.0;
+    y += (sin(z * 0.2 / SCALE + uTime * 1.8) + sin(z * 1.8 / SCALE + uTime * 1.8) + sin(z * 2.8 / SCALE + uTime * 0.8)) / 3.0;
+    return y;
+}
+void main() {
+    float uTime = timeMsec / 1000.0;
+    vUv = uv;
+    vec3 pos = position;
+    float strength = 1.0;
+    pos.y += strength * calculateSurface(pos.x, pos.z);
+    pos.y -= strength * calculateSurface(0.0, 0.0);
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+}
+`,
+    fragmentShader: `
+varying vec2 vUv;
+uniform sampler2D uMap;
+uniform vec3 color;
+uniform float timeMsec;
+void main() {
+    float uTime = timeMsec / 1000.0;
+    vec2 uv = vUv * 10.0 + vec2(uTime * -0.05);
+    uv.y += 0.01 * (sin(uv.x * 3.5 + uTime * 0.35) + sin(uv.x * 4.8 + uTime * 1.05) + sin(uv.x * 7.3 + uTime * 0.45)) / 3.0;
+    uv.x += 0.12 * (sin(uv.y * 4.0 + uTime * 0.5) + sin(uv.y * 6.8 + uTime * 0.75) + sin(uv.y * 11.3 + uTime * 0.2)) / 3.0;
+    uv.y += 0.12 * (sin(uv.x * 4.2 + uTime * 0.64) + sin(uv.x * 6.3 + uTime * 1.65) + sin(uv.x * 8.2 + uTime * 0.45)) / 3.0;
+    vec4 tex1 = texture2D(uMap, uv * 1.0);
+    vec4 tex2 = texture2D(uMap, uv * 1.0 + vec2(0.2));
+    vec3 blue = color;
+    gl_FragColor = vec4(blue + vec3(tex1.a * 0.9 - tex2.a * 0.02), 1.0);
+}`
+  });
 
-    	<!-- Asset management system. -->
-      <a-assets>
-        <img id="sky" src="Asset_2/Sky_2.jpg">
-        
-        
-        <a-asset-item id="Cuenca" src="Asset_2/Cuenca_2.gltf"></a-asset-item>
-         <a-asset-item id="Agua" src="Asset_2/Agua_2.gltf"></a-asset-item>
-        
-        
-      </a-assets>
+    </script>    
+  </head>
 
-      <!-- Tiene que ser una imagen equirectangular -->
+  <body>
+    <!-- Compressor, Loading Screen, Fog -->
+    <a-scene
+    gltf-model="dracoDecoderPath: https://cdn.8thwall.com/web/aframe/draco-decoder/"
+    xrweb a-scene loading-screen="dotsColor: #603123; backgroundColor: #c7c6bc"
+    a-entity environment="" fog="color: #c0d1d8; density: 150; far: 90; type: near: 10" visible="" id="Fog"></a-entity>
+
+      <!-- Asset management system. -->
+    <a-assets>
+      <img id="sky" src="Asset_2/Sky_2.jpg">     
+      <audio id="sound" src="Asset_2/Sound_2.mp3" preload="auto"></audio>
+      <audio id="music" src="Asset_2/Music_2.mp3" preload="auto"></audio> 
+      <a-asset-item id="Plantas1" src="Asset_2/Plantas1_2.glb"></a-asset-item>
+      <a-asset-item id="Plantas3" src="Asset_2/Plantas3_2.glb"></a-asset-item>
+      <a-asset-item id="Tierra" src="Asset_2/Tierra_2.glb"></a-asset-item>
+    </a-assets>    
+      
        <!-- Scene. -->
-        <a-sky src="#sky"></a-sky>
-        <a-entity position="0 2.25 -15" particle-system="preset: rain"></a-entity>
-        <a-entity gltf-model="#Cuenca"
-        scale="2 2 2"></a-entity>
-        <a-entity gltf-model="#Agua"></a-entity>
-        
-        
-
-        
-
-
-
+      <a-sky src="#sky"></a-sky>    
+      <a-entity sound="src: #sound; autoplay: true; loop: true"></a-entity>
+      <a-entity sound="src: #music; autoplay: true; loop: true"></a-entity>
+      <a-text color="black" value="En Desarrollo" position="-0.5 2.5 -3" rotation="0 0 0"></a-text>
+      <a-entity gltf-model="Asset_2/Plantas1_2.glb" visible="" position="-1.09882 1.41 -21.07635" scale="2 2 2"></a-entity>
+      <a-entity gltf-model="Asset_2/Plantas3_2.glb" visible="" scale="2 2 2"></a-entity>      
+      <a-entity gltf-model="Asset_2/Tierra_2.glb" scale="2 2 2" visible=""></a-entity>
+      <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount: 5000"></a-entity>
+      <a-plane rotation="-90 0 0" position="0 -0.0063 0" width="500" height="500" segments-height="2" segments-width="2" material="shader: makewaves; uMap: https://cinemont.com/tutorials/zelda/water.png; repeat: 15 15; transparent: true; color: #336c70" geometry=""></a-plane>        
     </a-scene>
-
   </body>
 </html>
-
 
 
 
