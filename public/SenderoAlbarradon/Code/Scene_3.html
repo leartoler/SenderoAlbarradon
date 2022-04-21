@@ -1,33 +1,75 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script> <!-- Lluvia -->
+    
+    <script src="https://ideaspacevr.github.io/aframe-particle-system-component/dist/aframe-particle-system-component.min.js"></script>
+
   </head>
   <body>
 
   	<!-- Compressor. -->
-    <a-scene>
+    <a-scene
+    gltf-model="dracoDecoderPath: https://cdn.8thwall.com/web/aframe/draco-decoder/"xrweb>
+
+
+
     
   
 
     	<!-- Asset management system. -->
       <a-assets>
-        <img id="sky" src="Asset_2/Sky_2.jpg">
+        <img id="sky" src="Asset_3/Sky_3.jpg">
         
         
-        <a-asset-item id="Cuenca" src="Asset_2/Cuenca_2.gltf"></a-asset-item>
-         <a-asset-item id="Agua" src="Asset_2/Agua_2.gltf"></a-asset-item>
+        <a-asset-item id="Asset1" src="Asset_3/p1.glb"></a-asset-item>
+        <a-asset-item id="Asset2" src="Asset_3/p2.glb"></a-asset-item>
+        
+        <a-asset-item id="Asset4" src="Asset_3/p4.glb"></a-asset-item>
+        <a-asset-item id="Asset5" src="Asset_3/p5.glb"></a-asset-item>
+        <a-asset-item id="Asset6" src="Asset_3/p6.glb"></a-asset-item>
+        <a-asset-item id="Asset7" src="Asset_3/p7.glb"></a-asset-item>
+        <a-asset-item id="Asset8" src="Asset_3/p8.glb"></a-asset-item>
+        <a-asset-item id="Asset9" src="Asset_3/p9.glb"></a-asset-item>
+        <a-asset-item id="Asset10" src="Asset_3/p10.glb"></a-asset-item>
+
+        <audio id="sound" src="Asset_3/Sound_3.mp3" preload="auto"></audio>
+      <audio id="music" src="Asset_3/Music_3.mp3" preload="auto"></audio>
+         
         
         
       </a-assets>
 
       <!-- Tiene que ser una imagen equirectangular -->
        <!-- Scene. -->
+        <a-entity sound="src: #sound; autoplay: true; loop: true"></a-entity>
+      <a-entity sound="src: #music; autoplay: true; loop: true"></a-entity>
+
         <a-sky src="#sky"></a-sky>
-        <a-entity position="0 2.25 -15" particle-system="preset: rain"></a-entity>
-        <a-entity gltf-model="#Cuenca"
-        scale="2 2 2"></a-entity>
-        <a-entity gltf-model="#Agua"></a-entity>
+        <a-entity position="0 2.25 -15" particle-system="preset: snow"></a-entity>
+        <a-entity gltf-model="#Asset1"></a-entity>
+        <a-entity gltf-model="#Asset2"></a-entity>
+       
+        <a-entity gltf-model="#Asset4"></a-entity>
+        <a-entity gltf-model="#Asset5"></a-entity>
+        <a-entity gltf-model="#Asset6"></a-entity>
+        <a-entity gltf-model="#Asset7"></a-entity>
+        <a-entity gltf-model="#Asset8"></a-entity>
+        <a-entity gltf-model="#Asset9"></a-entity>
+        <a-entity gltf-model="#Asset10"></a-entity>
+
+        <a-entity environment="" fog="color: #c0d1d8; density: 150; far: 90; type: near: 10" visible="" id="Fog"></a-entity>
+
+
+
+
+        <a-entity camera="" position="0 15.73707 22.88353" wasd-controls="" rotation="-26.814424812122535 10.31324031235481 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""></a-entity>
+
+        <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount: 50000; maxAge: 20; positionSpread: 100 100 100; rotationAngle: 3.14; accelerationValue: 0 0 0; accelerationSpread: 0.2 0 0.2; velocityValue: 0 8 0; velocitySpread: 2 0 2; color: #0000EE; texture: https://cdn.rawgit.com/IdeaSpaceVR/aframe-particle-system-component/master/dist/images/smokeparticle.png"></a-entity>
+
+        
+
+       
+
         
         
 
