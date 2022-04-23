@@ -1,7 +1,6 @@
 <html>
   <head>
       <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/84/three.min.js"></script>
       <script>
           AFRAME.registerShader('makewaves', {
             schema: {
@@ -65,8 +64,8 @@
 
   	<!-- Compressor. -->
   <a-scene
-    gltf-model="dracoDecoderPath: https://cdn.8thwall.com/web/aframe/draco-decoder/"xrweb
-    a-scene loading-screen="dotsColor: #603123; backgroundColor: #c7c6bc">
+    gltf-model="dracoDecoderPath: https://cdn.8thwall.com/web/aframe/draco-decoder/"
+    xrweb a-scene loading-screen="dotsColor: #603123; backgroundColor: #c7c6bc">
 
     	<!-- Asset management system. -->
     <a-assets>        
@@ -83,7 +82,7 @@
       <a-entity gltf-model="#Plantas"></a-entity>
       <a-sky src="#Sky_1"></a-sky>
       <a-entity sound="src: #Sound; autoplay: true; loop: true"></a-entity>
-      <a-entity sound="src: Asset_1/Music_1.mp3; autoplay: true; loop: true; volume: 0.7"></a-entity>
+      <a-entity sound="src: #Music; autoplay: true; loop: true; volume: 0.7"></a-entity>
       <a-plane rotation="-90 0 0" postion="0 -20 0" width="500" height="500" segments-height="2" segments-width="2" material="shader: makewaves; uMap: https://cinemont.com/tutorials/zelda/water.png; repeat: 15 15; transparent: true; color: #335670" geometry="" position="0 -2.78 -0.11" visible=""></a-plane>
 
     </a-scene>
