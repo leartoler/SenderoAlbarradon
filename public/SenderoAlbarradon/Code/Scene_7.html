@@ -1,8 +1,8 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-
-     <script>
+    <script src="https://ideaspacevr.github.io/aframe-particle-system-component/dist/aframe-particle-system-component.min.js"></script>
+    <script>
           AFRAME.registerShader('makewaves', {
             schema: {
               color: {
@@ -57,76 +57,34 @@
             gl_FragColor = vec4(blue + vec3(tex1.a * 0.9 - tex2.a * 0.02), 1.0);
         }`
           });
-    </script>    
-    
+    </script>       
   </head>
   <body>
-
   	<!-- Compressor. -->
     <a-scene
     gltf-model="dracoDecoderPath: https://cdn.8thwall.com/web/aframe/draco-decoder/"xrweb
-    a-scene loading-screen="dotsColor: red; backgroundColor: black">
-
-    	
-    
-  
-
+    a-scene loading-screen="dotsColor: #603123; backgroundColor: #c7c6bc"
+    a-entity environment="" fog="color: #c0d1d8; density: 500; far: 200; type: near: 30" visible="" id="Fog">    
     	<!-- Asset management system. -->
       <a-assets>
-        <img id="Sky" src="Asset_7/Sky_7.jpg">
-        <!-- Ambient 3D -->
         <a-asset-item id="Tierra" src="Asset_7/Tierra_7.glb"></a-asset-item>
-        
         <a-asset-item id="Pasto" src="Asset_7/Pasto_7.glb"></a-asset-item>
         <a-asset-item id="Pared" src="Asset_7/Pared.glb"></a-asset-item>
-
-
-
-
-
-
+        <a-entity environment="" fog="color: #c0d1d8; density: 150; far: 120; type: near: 30" visible="" id="Fog"></a-entity>
       	<a-asset-item id="Capilla" src="Asset_7/Albarradon-v3.glb"></a-asset-item>
-      	     
-        
       	<!-- <a-asset-item id="Muro" src="Asset_7/Muro_7.glb"></a-asset-item> -->
-
-        
-        
-        
       </a-assets>
-        <a-sky src="#Sky" position = "0 -25 0"></a-sky>
-      <!-- Ambient 3D -->
-        <a-entity gltf-model="#Tierra"></a-entity>
-        <a-entity gltf-model="#Agua"></a-entity>
-        <a-entity gltf-model="#Pasto"></a-entity>
-        <a-entity gltf-model="#Pared"></a-entity>
-        
-
-
-     
-
-        
-        <a-entity gltf-model="#Capilla"></a-entity>   
-        <a-plane rotation="-90 0 0" position="0 -1.23736 0" width="250" height="250" segments-height="2" segments-width="2" material="shader: makewaves; uMap: https://cinemont.com/tutorials/zelda/water.png; repeat: 15 15; transparent: true; color: #336c70" geometry=""></a-plane>
-        
-        
+        <a-entity gltf-model="#Tierra" visible=""></a-entity>
+        <a-entity gltf-model="#Pasto" position="0, -0.48, 0"></a-entity>
+        <a-entity gltf-model="#Pared" position="0, -5.23, 0"></a-entity>
+        <a-entity camera="far: 250" position="5.31619 1.6 7.06006" wasd-controls="" rotation="" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""></a-entity>
+        <a-entity gltf-model="#Capilla" position="0, -4.52, 5.895"></a-entity>   
+        <a-plane rotation="-90 0 0" position="0 -4.8 0" width="500" height="500" segments-height="2" segments-width="2" material="shader: makewaves; uMap: https://cinemont.com/tutorials/zelda/water.png; repeat: 15 15; transparent: true; color: #336c70" geometry="" visible=""></a-plane>
+        <a-entity position="0 2.25 -15" particle-system="preset: dust; particleCount: 10000"></a-entity>
         <!-- <a-entity gltf-model="#Muro"></a-entity> -->
-        
-
-
-
-         
-        
-
-        
-
-
-
     </a-scene>
-
   </body>
 </html>
-
 
 
 
