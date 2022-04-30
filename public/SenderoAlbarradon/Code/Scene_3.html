@@ -2,44 +2,90 @@
   <head>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>    
     <script src="https://ideaspacevr.github.io/aframe-particle-system-component/dist/aframe-particle-system-component.min.js"></script>
+    <script>
+                AFRAME.registerShader('makewaves', {
+                  schema: {
+                    color: {
+                      type: 'color',
+                      is: 'uniform',
+                      default: '#0051da'
+                    },
+                    timeMsec: {
+                      type: 'time',
+                      is: 'uniform'
+                    },
+                    uMap: {
+                    type: 'map',
+                      is: 'uniform'
+                    }
+                  },
+                  vertexShader: `
+              #define SCALE 10.0
+              varying vec2 vUv;
+              uniform float timeMsec;
+              float calculateSurface(float x, float z) {
+                  float uTime = timeMsec / 1000.0;
+                  float y = 0.0;
+                  y += (sin(x * 1.0 / SCALE + uTime * 1.0) + sin(x * 2.3 / SCALE + uTime * 1.5) + sin(x * 3.3 / SCALE + uTime * 0.4)) / 3.0;
+                  y += (sin(z * 0.2 / SCALE + uTime * 1.8) + sin(z * 1.8 / SCALE + uTime * 1.8) + sin(z * 2.8 / SCALE + uTime * 0.8)) / 3.0;
+                  return y;
+              }
+              void main() {
+                  float uTime = timeMsec / 1000.0;
+                  vUv = uv;
+                  vec3 pos = position;
+                  float strength = 1.0;
+                  pos.y += strength * calculateSurface(pos.x, pos.z);
+                  pos.y -= strength * calculateSurface(0.0, 0.0);
+                  gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+              }
+              `,
+                  fragmentShader: `
+              varying vec2 vUv;
+              uniform sampler2D uMap;
+              uniform vec3 color;
+              uniform float timeMsec;
+              void main() {
+                  float uTime = timeMsec / 1000.0;
+                  vec2 uv = vUv * 10.0 + vec2(uTime * -0.05);
+                  uv.y += 0.01 * (sin(uv.x * 3.5 + uTime * 0.35) + sin(uv.x * 4.8 + uTime * 1.05) + sin(uv.x * 7.3 + uTime * 0.45)) / 3.0;
+                  uv.x += 0.12 * (sin(uv.y * 4.0 + uTime * 0.5) + sin(uv.y * 6.8 + uTime * 0.75) + sin(uv.y * 11.3 + uTime * 0.2)) / 3.0;
+                  uv.y += 0.12 * (sin(uv.x * 4.2 + uTime * 0.64) + sin(uv.x * 6.3 + uTime * 1.65) + sin(uv.x * 8.2 + uTime * 0.45)) / 3.0;
+                  vec4 tex1 = texture2D(uMap, uv * 1.0);
+                  vec4 tex2 = texture2D(uMap, uv * 1.0 + vec2(0.2));
+                  vec3 blue = color;
+                  gl_FragColor = vec4(blue + vec3(tex1.a * 0.9 - tex2.a * 0.02), 1.0);
+              }`
+                });
+    </script> 
   </head>
   <body>
   	<!-- Compressor. -->
     <a-scene
-      gltf-model="dracoDecoderPath: https://cdn.8thwall.com/web/aframe/draco-decoder/"xrweb>
+      gltf-model="dracoDecoderPath: https://cdn.8thwall.com/web/aframe/draco-decoder/"
+      xrweb a-scene loading-screen="dotsColor: #603123; backgroundColor: #c7c6bc">>
     	<!-- Asset management system. -->
       <a-assets>
         <img id="sky" src="Asset_3/Sky_3.jpg">        
-        <a-asset-item id="Asset1" src="Asset_3/p1.glb"></a-asset-item>
-        <a-asset-item id="Asset2" src="Asset_3/p2.glb"></a-asset-item>        
-        <a-asset-item id="Asset4" src="Asset_3/p4.glb"></a-asset-item>
-        <a-asset-item id="Asset5" src="Asset_3/p5.glb"></a-asset-item>
-        <a-asset-item id="Asset6" src="Asset_3/p6.glb"></a-asset-item>
-        <a-asset-item id="Asset7" src="Asset_3/p7.glb"></a-asset-item>
-        <a-asset-item id="Asset8" src="Asset_3/p8.glb"></a-asset-item>
-        <a-asset-item id="Asset9" src="Asset_3/p9.glb"></a-asset-item>
-        <a-asset-item id="Asset10" src="Asset_3/p10.glb"></a-asset-item>
+        <a-asset-item id="Altar" src="Asset_3/Altar_3.glb"></a-asset-item>
+        <a-asset-item id="Tierra" src="Asset_3/Tierra_3.glb"></a-asset-item>
+        <a-asset-item id="Plantas" src="Asset_3/Plantas_3.glb"></a-asset-item>
+        <a-asset-item id="Pared" src="Asset_3/Pared_3.glb"></a-asset-item>
         <audio id="sound" src="Asset_3/Sound_3.mp3" preload="auto"></audio>
-        <audio id="music" src="Asset_3/Music_3.mp3" preload="auto"></audio>        
+        <audio id="music" src="Asset_3/Music_3.mp3" preload="auto"></audio>
       </a-assets>
-      <!-- Tiene que ser una imagen equirectangular -->
-      <!-- Scene. -->
       <a-entity sound="src: #sound; autoplay: true; loop: true"></a-entity>
       <a-entity sound="src: #music; autoplay: true; loop: true"></a-entity>
       <a-sky src="#sky"></a-sky>
       <a-entity position="0 2.25 -15" particle-system="preset: snow"></a-entity>
-      <a-entity gltf-model="#Asset1"></a-entity>
-      <a-entity gltf-model="#Asset2"></a-entity>
-      <a-entity gltf-model="#Asset4"></a-entity>
-      <a-entity gltf-model="#Asset5"></a-entity>
-      <a-entity gltf-model="#Asset6"></a-entity>
-      <a-entity gltf-model="#Asset7"></a-entity>
-      <a-entity gltf-model="#Asset8"></a-entity>
-      <a-entity gltf-model="#Asset9"></a-entity>
-      <a-entity gltf-model="#Asset10"></a-entity>
+      <a-entity gltf-model="#Pared"></a-entity>
+      <a-entity gltf-model="#Tierra"></a-entity>
+      <a-entity gltf-model="#Plantas"></a-entity>      
+      <a-entity gltf-model="#Altar"></a-entity>  
       <a-entity environment="" fog="color: #c0d1d8; density: 150; far: 90; type: near: 10" visible="" id="Fog"></a-entity>
-      <a-entity camera="" position="-48.76691 7.2392 2.01608" wasd-controls="" rotation="-0.2291831180523293 -86.17285238767585 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""></a-entity>
-      <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount: 50000; maxAge: 20; positionSpread: 100 100 100; rotationAngle: 3.14; accelerationValue: 0 0 0; accelerationSpread: 0.2 0 0.2; velocityValue: 0 8 0; velocitySpread: 2 0 2; color: #0000EE; texture: https://cdn.rawgit.com/IdeaSpaceVR/aframe-particle-system-component/master/dist/images/smokeparticle.png"></a-entity>
+      <a-entity camera="" position="-48.76691 7.2392 2.01608" wasd-controls="" rotation="3.8961130068895984 -88.94919 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""></a-entity>
+      <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount: 50000; maxAge: 20; positionSpread: 250 250 250; rotationAngle: 3.14; accelerationValue: 0 0 0; accelerationSpread: 0.2 0 0.2; velocityValue: 0 8 0; velocitySpread: 2 0 2; color: #0000EE; texture: https://cdn.rawgit.com/IdeaSpaceVR/aframe-particle-system-component/master/dist/images/smokeparticle.png"></a-entity>
+      <a-plane rotation="-90 0 0" postion="0 -20 0" width="500" height="500" segments-height="2" segments-width="2" material="shader: makewaves; uMap: https://cinemont.com/tutorials/zelda/water.png; repeat: 15 15; transparent: true; color: #5c6d9d; blending: none" geometry="" visible="" position="0 2.62437 0"></a-plane>
     </a-scene>
   </body>
 </html>
