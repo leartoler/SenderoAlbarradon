@@ -3,31 +3,18 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://ideaspacevr.github.io/aframe-particle-system-component/dist/aframe-particle-system-component.min.js"></script>    
   </head>
-
   <body>
-    <!-- Compressor, Loading Screen, Fog -->
     <a-scene
     gltf-model="dracoDecoderPath: https://cdn.8thwall.com/web/aframe/draco-decoder/"
     xrweb a-scene loading-screen="dotsColor: #603123; backgroundColor: #c7c6bc"
     a-entity environment="" fog="color: #c0d1d8; density: 150; far: 90; type: near: 10" visible="" id="Fog"></a-entity>
-
-      <!-- Asset management system. -->
     <a-assets>
-      <!--
-      <img id="sky" src="Asset_2/Sky_2.jpg">     
-      <audio id="sound" src="Asset_2/Sound_2.mp3" preload="auto"></audio>
-      <audio id="music" src="Asset_2/Music_2.mp3" preload="auto"></audio> 
-    -->
-
       <a-asset-item id="Plantas" src="Asset_9/Plantas_9.glb"></a-asset-item>
       <a-asset-item id="Puente" src="Asset_9/PuenteFierro_9.glb"></a-asset-item>
-      <a-asset-item id="Tierra" src="Asset_9/Prueba.glb"></a-asset-item>
+      <a-asset-item id="Tierra" src="Asset_9/Prueba_9.glb"></a-asset-item>
       <a-asset-item id="Caminos" src="Asset_9/Caminos_9.glb"></a-asset-item>
       <a-asset-item id="Albarradon" src="Asset_9/Albarradon_9.glb"></a-asset-item>
-    </a-assets>    
-      
-       <!-- Scene. -->
-      <!-- <a-sky src="#sky"></a-sky> -->   
+    </a-assets>        
       <a-entity sound="src: #sound; autoplay: true; loop: true"></a-entity>
       <a-entity sound="src: #music; autoplay: true; loop: true"></a-entity>    
       <a-entity gltf-model="#Plantas"></a-entity>  
@@ -35,8 +22,7 @@
       <a-entity gltf-model="#Tierra"></a-entity>
       <a-entity gltf-model="#Caminos"></a-entity>
       <a-entity gltf-model="#Albarradon" position="9.25426 30.68123 99.24975" scale="0.5 0.5 0.5"></a-entity>
-       <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount: 10000; maxAge: 2; positionSpread: 200 200 200; rotationAngle: 3.14; accelerationValue: 0 0 0; accelerationSpread: 0.2 1 0.2; velocityValue: 0 8 0; velocitySpread: 2 0 2; dragValue: 1; dragSpread: 1.5; color: #191970; texture: https://cdn.rawgit.com/IdeaSpaceVR/aframe-particle-system-component/master/dist/images/smokeparticle.png; blending: 1"></a-entity>
-       
+      <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount: 10000; maxAge: 2; positionSpread: 200 200 200; rotationAngle: 3.14; accelerationValue: 0 0 0; accelerationSpread: 0.2 1 0.2; velocityValue: 0 8 0; velocitySpread: 2 0 2; dragValue: 1; dragSpread: 1.5; color: #191970; texture: https://cdn.rawgit.com/IdeaSpaceVR/aframe-particle-system-component/master/dist/images/smokeparticle.png; blending: 1"></a-entity>       
       <a-entity camera="" position="-19.36778 36.3865 54.44084" wasd-controls="" rotation="" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""></a-entity>
     </a-scene>
   </body>
