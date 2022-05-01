@@ -15,12 +15,15 @@
         <a-sky radius="5000" sky-material></a-sky>    
         <a-asset-item id="Altar" src="Asset_5/Altar_5.glb"></a-asset-item>
         <a-asset-item id="Pared1" src="Asset_5/Pared1_5.glb"></a-asset-item>
-        <a-asset-item id="Pared2" src="Asset_5/Pared2_5.glb"></a-asset-item>
         <a-asset-item id="Piso" src="Asset_5/Piso_5.glb"></a-asset-item>
+        <audio id="sound" src="Asset_5/Sound_5.mp3" preload="auto"></audio>
+        <audio id="music" src="Asset_5/Music_5.mp3" preload="auto"></audio>
       </a-assets>    
+        <a-entity sound="src: #sound; autoplay: true; loop: true"></a-entity>
+        <a-entity sound="src: #music; autoplay: true; loop: true volume: 0.7" ></a-entity>
         <a-entity gltf-model="#Altar" position="0.495 0 0"></a-entity>
         <a-entity gltf-model="#Pared1"></a-entity>
-        <a-entity gltf-model="#Pared2" position="15.84 0 -0.298"></a-entity>
+        <a-entity gltf-model="#Pared1" position="15.84 0 -0.298"></a-entity>
         <a-entity gltf-model="#Piso"></a-entity>      
         <a-entity camera="" position="-0.12685 15.07321 17.81411" wasd-controls="" rotation="" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""></a-entity>      
         <a-entity light="type: hemisphere; color: #0E192B; groundColor: #1D0A57; intensity: 7" position="0 15 0"></a-entity>

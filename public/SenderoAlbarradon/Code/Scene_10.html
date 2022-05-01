@@ -9,6 +9,8 @@
       fog="color:  #7ec0dd;  density:  150;  far:  90;  type:  near:  10">
       <a-assets>
         <img id="sky" src="Asset_2/Sky_2.jpg">      
+        <audio id="sound" src="Asset_10/Sound_10.mp3" preload="auto"></audio>
+        <audio id="music" src="Asset_10/Music_10.mp3" preload="auto"></audio>
         <a-asset-item id="Plantas" src="Asset_10/Plantas_10.glb"></a-asset-item>
         <a-asset-item id="Tierra" src="Asset_10/Tierra_10.glb"></a-asset-item>
         <a-asset-item id="Puente" src="Asset_10/Puente_10.glb"></a-asset-item>
@@ -16,7 +18,9 @@
         <a-asset-item id="Arboles" src="Asset_10/Arboles_10.glb"></a-asset-item>
         <a-asset-item id="Casa" src="Asset_10/Casa_10.glb"></a-asset-item>
       </a-assets>       
-        <a-sky src="#sky"></a-sky>       
+        <a-sky src="#sky"></a-sky>  
+        <a-entity sound="src: #sound; autoplay: true; loop: true; volume: 7"></a-entity>
+        <a-entity sound="src: #music; autoplay: true; loop: true; volume: 4"></a-entity>     
         <a-entity gltf-model="#Plantas" visible=""></a-entity>
         <a-entity gltf-model="#Tierra" visible=""></a-entity>
         <a-entity gltf-model="#Puente" visible="" position="0 0 50"></a-entity>

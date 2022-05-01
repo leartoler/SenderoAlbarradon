@@ -66,12 +66,16 @@
       a-scene loading-screen="dotsColor: #603123; backgroundColor: #c7c6bc"
       a-entity environment="" fog="color: #c0d1d8; density: 500; far: 200; type: near: 30" visible="" id="Fog">    
     	<a-assets>
+        <audio id="sound" src="Asset_7/Sound_7.mp3" preload="auto"></audio>
+        <audio id="music" src="Asset_7/Music_7.mp3" preload="auto"></audio>
         <a-asset-item id="Tierra" src="Asset_7/Tierra_7.glb"></a-asset-item>
         <a-asset-item id="Pasto" src="Asset_7/Pasto_7.glb"></a-asset-item>
         <a-asset-item id="Pared" src="Asset_7/Pared_7.glb"></a-asset-item>
         <a-asset-item id="Capilla" src="Asset_7/Albarradon_7.glb"></a-asset-item>
         <a-entity environment="" fog="color: #c0d1d8; density: 150; far: 120; type: near: 30" visible="" id="Fog"></a-entity>
       </a-assets>
+        <a-entity sound="src: #sound; autoplay: true; loop: true"></a-entity>
+        <a-entity sound="src: #music; autoplay: true; loop: true volume: 0.7" ></a-entity>
         <a-entity gltf-model="#Tierra" visible=""></a-entity>
         <a-entity gltf-model="#Pasto" position="0, -0.48, 0"></a-entity>
         <a-entity gltf-model="#Pared" position="0, -5.23, 0"></a-entity>

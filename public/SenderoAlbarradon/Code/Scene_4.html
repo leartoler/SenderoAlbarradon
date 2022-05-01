@@ -1,9 +1,6 @@
 <html>
   <head>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="shaderfrog-runtime.min.js"></script>
-    
-     <!-- Water Shader -->   
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>    
     <script>
             AFRAME.registerShader('makewaves', {
               schema: {
@@ -64,45 +61,38 @@
   <body>
     <a-scene
       gltf-model="dracoDecoderPath: https://cdn.8thwall.com/web/aframe/draco-decoder/"
-
       xrweb a-scene loading-screen="dotsColor: #603123; backgroundColor: #c7c6bc">
         <a-assets>      
-          <img id="sky" src="Asset_4/Sky_4.jpg">     
-          
-          <a-asset-item id="A1" src="Asset_4/A1.glb"></a-asset-item>
-          <a-asset-item id="A2" src="Asset_4/A2.glb"></a-asset-item>
-          <a-asset-item id="A3" src="Asset_4/A3.glb"></a-asset-item>
-          <a-asset-item id="m1" src="Asset_4/m1.glb"></a-asset-item>
-          <a-asset-item id="A5" src="Asset_4/A5.glb"></a-asset-item>        
-          <a-asset-item id="A7" src="Asset_4/A7.glb"></a-asset-item>
-          <a-asset-item id="A8" src="Asset_4/A8.glb"></a-asset-item>
-          <a-asset-item id="A9" src="Asset_4/A9.glb"></a-asset-item>
-          <a-asset-item id="A10" src="Asset_4/A10.glb"></a-asset-item>
-          <a-asset-item id="A11" src="Asset_4/A11.glb"></a-asset-item>
-          <audio id="sound" src="Asset_4/S1.mp3" preload="auto"></audio>
-          <audio id="music" src="Asset_4/M1.mp3" preload="auto"></audio>
-          
-        </a-assets>      
-          <a-entity gltf-model="#A1"></a-entity>
-          <a-entity gltf-model="#A2"></a-entity>
-          <a-entity gltf-model="#A3"></a-entity>
-          <a-entity gltf-model="#m1"></a-entity>
-          <a-entity gltf-model="#A5"></a-entity>        
-          <a-entity gltf-model="#A7"></a-entity>
-          <a-entity gltf-model="#A8"></a-entity>
-          <a-entity gltf-model="#A9"></a-entity>
-          <a-entity gltf-model="#A10"></a-entity>  
-
-
-          <a-entity camera="far: 1500; fov: 70" position="3.23576 4.13528 -11.08691" wasd-controls="" rotation="-24.29341051354692 -148.62525205693555 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""></a-entity>
-
-
-
-
+          <img id="sky" src="Asset_4/Sky_4.jpg">  
+          <a-asset-item id="Tierra" src="Asset_4/Tierra_4.glb"></a-asset-item>
+          <a-asset-item id="Pared1" src="Asset_4/Pared1_4.glb"></a-asset-item>
+          <a-asset-item id="Pared2" src="Asset_4/Pared2_4.glb"></a-asset-item>
+          <a-asset-item id="Plantas1" src="Asset_4/Plantas1_4.glb"></a-asset-item>
+          <a-asset-item id="Plantas2" src="Asset_4/Plantas2_4.glb"></a-asset-item>
+          <a-asset-item id="Altar" src="Asset_4/Altar_4.glb"></a-asset-item>
+          <a-asset-item id="Capilla" src="Asset_4/Capilla_4.glb"></a-asset-item>
+          <audio id="sound" src="Asset_4/Sound_4.mp3" preload="auto"></audio>
+          <audio id="music" src="Asset_4/Music_4.mp3" preload="auto"></audio>              
+        </a-assets>
           <a-sky src="#sky" material="" geometry="" position="0 -87.92 0"></a-sky>
-          <a-plane rotation="-90 0 0" postion="0 -20 0" width="500" height="500" segments-height="2" segments-width="2" material="shader: makewaves; uMap: https://cinemont.com/tutorials/zelda/water.png; repeat: 15 15; transparent: true; color: #335670" geometry="" position="0 1.44587 -0.11" visible=""></a-plane>
+          <a-entity gltf-model="#Tierra"></a-entity>   
+          <a-entity gltf-model="#Pared1"></a-entity>   
+          <a-entity gltf-model="#Pared2"></a-entity>
+          <a-entity gltf-model="#Plantas1"></a-entity>  
+          <a-entity gltf-model="#Plantas2"></a-entity> 
+          <a-entity gltf-model="#Altar" position="-88.425 2.250 5.882" rotation="0 -27.210 0"></a-entity>  
+          <a-entity gltf-model="#Altar" position="84 2.352 -9.146" rotation="0 -0.438 0"></a-entity>   
+          <a-entity gltf-model="#Capilla" position="5.991 1.967 -5.423" rotation="0 -85.075 0"></a-entity> 
+          <a-entity gltf-model="#Capilla" position="-75.104 1.967 7.027" rotation="1.909 -63.268 1.061"></a-entity> 
           <a-entity sound="src: #sound; autoplay: true; loop: true"></a-entity>
-          <a-entity sound="src: #music; autoplay: true; loop: true"></a-entity>
+          <a-entity sound="src: #music; autoplay: true; loop: true volume: 0.7" ></a-entity>
+          <a-entity camera="far: 1500; fov: 70" position="3.23576 4.13528 -11.08691" wasd-controls="" rotation="0 180 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""></a-entity>         
+          <a-plane rotation="-90 0 0" postion="0 -20 0" width="500" height="500" segments-height="2" segments-width="2" material="shader: makewaves; uMap: https://cinemont.com/tutorials/zelda/water.png; repeat: 15 15; transparent: true; color: #335670" geometry="" position="0 1.44587 -0.11" visible=""></a-plane>          
     </a-scene>
   </body>
 </html>
+
+
+
+
+

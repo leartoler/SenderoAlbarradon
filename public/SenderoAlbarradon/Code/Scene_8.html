@@ -64,8 +64,8 @@
     gltf-model="dracoDecoderPath: https://cdn.8thwall.com/web/aframe/draco-decoder/"
     xrweb a-scene loading-screen="dotsColor: #603123; backgroundColor: #c7c6bc">     
     <a-assets>        
-      <audio id="Sound" src="Asset_8/A2.mp3" preload="auto"></audio>
-      <audio id="Music" src="Asset_8/A4.mp3" preload="auto"></audio>
+      <audio id="Sound" src="Asset_8/Sound_8.mp3" preload="auto"></audio>
+      <audio id="Music" src="Asset_8/Music_8.mp3" preload="auto"></audio>
       <img id="Sky_1" src="Asset_8/Sky_8.jpg">
       <a-asset-item id="Tierra" src="Asset_8/Tierra_8.glb"></a-asset-item>
       <a-asset-item id="Pasto" src="Asset_8/Pasto_8.glb"></a-asset-item>
@@ -77,7 +77,8 @@
       <a-entity gltf-model="#Pasto"></a-entity>
       <a-entity gltf-model="#Plantas"></a-entity>
       <a-entity gltf-model="#Edificios"></a-entity>      
-      <a-entity sound="src: #Music; autoplay: true; loop: true; volume: 0.7"></a-entity>
+      <a-entity sound="src: #Music; autoplay: true; loop: true; volume: 0.5"></a-entity>
+      <a-entity sound="src: #Sound; autoplay: true; loop: true; volume: 5"></a-entity>
       <a-plane rotation="-90 0 0" postion="0 -20 0" width="500" height="500" segments-height="2" segments-width="2" material="shader: makewaves; uMap: https://cinemont.com/tutorials/zelda/water.png; repeat: 15 15; color: #335670; vertexColors: face; blending: none" geometry="" position="0 -2.78 -0.11" visible="" id="1"></a-plane>
       <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount: 10000; maxAge: 2; positionSpread: 100 100 100; rotationAngle: 3.14; accelerationValue: 0 0 0; accelerationSpread: 0.2 1 0.2; velocityValue: 0 8 0; velocitySpread: 2 0 2; dragValue: 1; dragSpread: 1.5; color: #191970; texture: https://cdn.rawgit.com/IdeaSpaceVR/aframe-particle-system-component/master/dist/images/smokeparticle.png; blending: 1"></a-entity>
       <a-entity camera="" position="0 2.95442 0" wasd-controls="" rotation="" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""></a-entity>

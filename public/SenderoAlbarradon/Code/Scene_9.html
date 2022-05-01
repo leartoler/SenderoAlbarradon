@@ -9,14 +9,14 @@
     xrweb a-scene loading-screen="dotsColor: #603123; backgroundColor: #c7c6bc"
     a-entity environment="" fog="color: #c0d1d8; density: 150; far: 90; type: near: 10" visible="" id="Fog"></a-entity>
     <a-assets>
+      <audio id="Music" src="Asset_9/Music_9.mp3" preload="auto"></audio>
       <a-asset-item id="Plantas" src="Asset_9/Plantas_9.glb"></a-asset-item>
       <a-asset-item id="Puente" src="Asset_9/PuenteFierro_9.glb"></a-asset-item>
-      <a-asset-item id="Tierra" src="Asset_9/Prueba_9.glb"></a-asset-item>
+      <a-asset-item id="Tierra" src="Asset_9/Tierra_9.glb"></a-asset-item>
       <a-asset-item id="Caminos" src="Asset_9/Caminos_9.glb"></a-asset-item>
       <a-asset-item id="Albarradon" src="Asset_9/Albarradon_9.glb"></a-asset-item>
-    </a-assets>        
-      <a-entity sound="src: #sound; autoplay: true; loop: true"></a-entity>
-      <a-entity sound="src: #music; autoplay: true; loop: true"></a-entity>    
+    </a-assets>         
+      <a-entity sound="src: #Music; autoplay: true; loop: true; volume: 7"></a-entity>    
       <a-entity gltf-model="#Plantas"></a-entity>  
       <a-entity gltf-model="#Puente"></a-entity>            
       <a-entity gltf-model="#Tierra"></a-entity>
