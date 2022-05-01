@@ -1,6 +1,8 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="shaderfrog-runtime.min.js"></script>
+    
      <!-- Water Shader -->   
     <script>
             AFRAME.registerShader('makewaves', {
@@ -64,9 +66,9 @@
       gltf-model="dracoDecoderPath: https://cdn.8thwall.com/web/aframe/draco-decoder/"
 
       xrweb a-scene loading-screen="dotsColor: #603123; backgroundColor: #c7c6bc">
-
-        <a-assets>
-          <img id="A12" src="Asset_4/Sky_4.jpg">        
+        <a-assets>      
+          <img id="sky" src="Asset_4/Sky_4.jpg">     
+          
           <a-asset-item id="A1" src="Asset_4/A1.glb"></a-asset-item>
           <a-asset-item id="A2" src="Asset_4/A2.glb"></a-asset-item>
           <a-asset-item id="A3" src="Asset_4/A3.glb"></a-asset-item>
@@ -89,21 +91,18 @@
           <a-entity gltf-model="#A7"></a-entity>
           <a-entity gltf-model="#A8"></a-entity>
           <a-entity gltf-model="#A9"></a-entity>
-          <a-entity gltf-model="#A10"></a-entity>        
-          <a-entity camera="far: 1500; fov: 70" position="3.23576 2.88839 -11.08691" wasd-controls="" rotation="0 200 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""></a-entity>
-          <a-sky src="#A12" material="" geometry="" position="0 -87.92 0"></a-sky>
+          <a-entity gltf-model="#A10"></a-entity>  
+
+
+          <a-entity camera="far: 1500; fov: 70" position="3.23576 4.13528 -11.08691" wasd-controls="" rotation="-24.29341051354692 -148.62525205693555 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""></a-entity>
+
+
+
+
+          <a-sky src="#sky" material="" geometry="" position="0 -87.92 0"></a-sky>
           <a-plane rotation="-90 0 0" postion="0 -20 0" width="500" height="500" segments-height="2" segments-width="2" material="shader: makewaves; uMap: https://cinemont.com/tutorials/zelda/water.png; repeat: 15 15; transparent: true; color: #335670" geometry="" position="0 1.44587 -0.11" visible=""></a-plane>
           <a-entity sound="src: #sound; autoplay: true; loop: true"></a-entity>
           <a-entity sound="src: #music; autoplay: true; loop: true"></a-entity>
     </a-scene>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
